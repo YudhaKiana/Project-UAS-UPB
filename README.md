@@ -98,4 +98,82 @@ def cari_data():
    print ("CARI DATA") 
    v.cetak_pencarian
   ~~~
-  
+
+  # Penjelasan 
+    Pada bagian dari daftar_nilai.py berisi program dengan perintah menambahkan data, hapus data, ubah nim, dan mencari salah satu data yang sudah di input.
+
+# Tampilkan output tambah data :
+
+![img](gambar/RB%2013.jpeg)
+
+
+# Tampilkan ubah data :
+
+![img](gambar/RB%2014.jpeg)
+
+
+# Tampilkan hapus data :
+
+
+![img](gambar/RB%2015.jpeg)
+
+
+# 3. view_nilai.py berisi sourcecode yang berfungsi menampilkan seluruh data 
+
+~~~sh
+import Modul as m
+def cetak_daftar():
+    if m.Data.items():
+        print("="* 84)
+        print(f"|{'DATA MAHASISWA':^82}|")
+        print("="* 84)
+        print(f"|{'N0':^4}|{'NAMA':^20}|{'NIM':^20}|{'TUGAS':^10}|{'UTS':^6}|{'UAS':^6}|{'AKHIR':^10}|")
+        n = 0
+        for i in m.Data.items():
+            n += 1
+            print(f"|{n:^4}|{i[1][0]:^20}|{i[1][1]:^20}|{i[1][2]:^10}|{i[1][3]:^6}|{i[1][4]:^6}|{i[1][5]:^10}|")
+        print("="* 84)
+    else:
+        print("="* 84)
+        print(f"|{'TIDAK ADA DATA':^82}|")
+        print("="* 84)
+def cetak_pencarian():
+    cari = str(input('MASUKAN NAMA: '))
+    if cari in m.Data.keys():
+        print("="* 84)
+        print(f"|{'DATA MAHASISWA':^82}|")
+        print("="* 84)
+        print(f"|{'N0':^4}|{'NAMA':^20}|{'NIM':^20}|{'TUGAS':^10}|{'UTS':^6}|{'UAS':^6}|{'AKHIR':^10}|")
+        n = 0
+        for i in m.Data.items():
+            n += 1
+            print(f"|{n:^4}|{m.Data[cari][0]:^20}|{m.Data[cari][1]:^20}|{m.Data[cari][2]:^10}|{m.Data[cari][3]:^6}|{m.Data[cari][4]:^6}|{m.Data[cari][5]:^10}|")
+        print("="* 84)
+    else:
+        print("="* 84)
+        print(f"|{'TIDAK ADA DATA':^82}|")
+        print("="* 84)
+~~~
+
+# Penjelasan
+
+Di program ini terdapat modul yg menyambungkan view_nilai.py kedalam file program daftar_nilai.py dengan syntax from model import daftar_nilai. Fungsi ny mirip seperti input = "[(C)ari]", tapi fitur ini menampilkan seluruh data yg sudah di input.
+
+# input_nilai.py berisi code yang berfungsi untuk menginput data yaitu nilai
+
+~~~sh
+import Modul as m
+def input_data():
+    nama = str(input("nama\t\t: "))
+    nim = str(input("nim\t\t: "))
+    tugas =int(input("tugas\t\t: "))
+    uts = int(input("uts\t\t: "))
+    uas = int(input("uas\t\t: "))
+    akhir = round(float(tugas * 0.30 + uts * 0.35 + uas * 0.35),2)
+    m.Data [nama]=nama, nim, tugas, uts, uas, akhir
+~~~
+
+# Penjelasan
+
+Di program ini terdapat modul yg menyambungkann input_nilai.py kedalam file program daftar_nilai.py dengan syntax from model import daftar_nilai. Fitur ini khusus untuk menginput nilai
+
