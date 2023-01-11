@@ -57,3 +57,45 @@ while True:
 # Penjelasan
 
 Di program utama ini terdapat modul yang di import ke file form view import input_nilai, view_nilai & from model import daftar_nilai. Modul memungkinkan anda menulis kode yang terdiri dari beberapa file dan membaginya menjadi bagian-bagian yang lebih kecil, yang dapat sesuai diimport sesuai kebutuhan.
+
+# Contoh tampilan menu
+
+
+![img](gambar/RB%2013.jpeg)
+
+# 2. daftar_nilai.py
+  
+  Di dalam file daftar nilai ini terdapat sourcecode input("[(T)ambah, (C)ari, (H)apus, (U)bah] ")
+
+  ~~~sh
+  import view as v 
+import Modul as m
+Data={}
+def tambah_data(): 
+    print ("TAMBAH_DATA")
+    v.input_data()
+    print("DATA BERHASIL DI TAMBAHKAN")
+def ubah_data():
+    print ("UBAH_DATA")
+    cari = str(input("MASUKAN NAMA: "))
+    if cari in m.Data.keys():
+        v.input_data()
+        print("DATA BERHASIL DI UBAH")
+
+    else: 
+        print("DATA TIDAK DITEMUKAN")
+def hapus_data():
+    print ("HAPUS_DATA")
+    cari = str(input("MASUKAN NAMA: "))
+    if cari in m.Data.keys():
+        del m.Data[cari]
+        print("DATA BERHASIL DI HAPUS")
+
+    else: 
+        print("DATA TIDAK DITEMUKAN")
+    
+def cari_data():
+   print ("CARI DATA") 
+   v.cetak_pencarian
+  ~~~
+  
